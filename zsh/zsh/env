@@ -3,3 +3,5 @@
 export EDITOR=nvim
 export VISUAL=$EDITOR
 export GPG_TTY=$(tty)
+
+[ -S $HOME/.bitwarden-ssh-agent.sock ] && export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
