@@ -1,0 +1,46 @@
+# Use the official Ubuntu base image
+FROM debian:12-slim
+
+RUN apt update && apt install -y \
+    build-essential \
+    file \
+    zsh \
+    sudo \
+    curl \
+    git \
+    procps \
+    unzip \
+ && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user
+ARG USERNAME=devuser
+ARG USER_UID=1000
+ARG USER_GID=1000
+
+RUN groupadd --gid $USER_GID $USERNAME \
+ && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME \
+ && usermod -aG sudo $USERNAME \
+ && echo "$USERNAME ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+RUN chsh -s /usr/bin/zsh $USERNAME
+
+# Switch to the new user
+USER $USERNAME
+WORKDIR /home/$USERNAME
+
+# install homebrew prematurely so we don't have to re-run it all the time
+RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+
+# install homebrew bundle
+COPY ./Brewfile ./dotfiles/
+RUN /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./dotfiles/Brewfile
+
+# Copy and run the bootstrap on build to not have to do it every time we relaunch the container
+COPY . ./dotfiles/
+
+RUN cd dotfiles \
+  && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \ 
+  && ./bootstrap.sh 
+
+# Start Zsh by default
+CMD ["zsh"]

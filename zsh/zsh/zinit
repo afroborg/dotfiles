@@ -1,0 +1,29 @@
+# vim: set ft=zsh :
+
+source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
+
+zinit_plugins=(
+    casonadams/skim.zsh
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-completions
+    zsh-users/zsh-autosuggestions
+)
+
+omzp_plugins=(
+    git
+    command-not-found
+    brew
+    starship
+    docker
+)
+
+for p in $zinit_plugins; do
+    zinit light $p
+done
+
+for p in $omzp_plugins; do
+    zinit snippet OMZP::$p
+done
+
+autoload -U compinit && compinit
+zinit cdreplay -q

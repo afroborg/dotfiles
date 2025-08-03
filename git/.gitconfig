@@ -1,0 +1,15 @@
+[user]
+	name = Axel Froborg
+	email = axel.froborg@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[commit]
+	gpgsign = true
+[core]
+  excludesfile = ~/dotfiles/.globalignore
+[push]
+  autoSetupRemote = true
+[core]
+  editor = nvim

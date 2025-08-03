@@ -1,0 +1,13 @@
+# vim: set ft=zsh :
+
+[[ -x "$(command -v eza)" ]] && alias ls='eza -algHS'
+[[ -x "$(command -v bat)" ]] && alias cat='bat'
+alias grep='grep --color'
+alias mkdir='mkdir -p'
+alias vim='nvim'
+alias vi='nvim'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias src='source ~/.zshrc'
+
+[[ -f ~/.alias.local ]] && source ~/.alias.local

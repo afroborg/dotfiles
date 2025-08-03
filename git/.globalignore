@@ -1,0 +1,10 @@
+# Global .gitignore
+
+node_modules
+.tool-versions
+.DS_Store
+.env
+.envrc
+.eslintcache
+.nvimlog
+mise.local.toml

@@ -1,0 +1,9 @@
+# vim: set ft=zsh :
+
+function ipexternal() {
+    if [[ -x "$(command -v curl)" ]]; then
+        curl -s icanhazip.com && echo
+    else
+        echo "Curl required"
+    fi
+}
