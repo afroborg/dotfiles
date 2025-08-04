@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = { 'rafamadriz/friendly-snippets', 'giuxtaposition/blink-cmp-copilot' },
   version = '1.*',
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -19,7 +19,7 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = { preset = 'default' },
     fuzzy = {
-      implementation = "prefer_rust"
+      implementation = 'prefer_rust',
     },
     completion = {
       menu = {
@@ -42,12 +42,21 @@ return {
                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                 return hl
               end,
-            }
-          }
-        }
-      }
-    }
-
+            },
+          },
+        },
+      },
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
+      providers = {
+        copilot = {
+          name = 'copilot',
+          module = 'blink-cmp-copilot',
+          score_offset = 100,
+          async = true,
+        },
+      },
+    },
   },
-  opts_extend = { "sources.default" }
 }

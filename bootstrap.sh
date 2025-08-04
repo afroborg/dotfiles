@@ -39,4 +39,3 @@ stow zsh $stow_folders[@]
 echo "Installing tools using mise...\n"
 mise install
 echo "Installation complete\n"
-

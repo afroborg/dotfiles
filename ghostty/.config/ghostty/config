@@ -4,3 +4,7 @@ font-size = 14
 maximize = true
 fullscreen = true
 macos-non-native-fullscreen = visible-menu
+macos-option-as-alt = left
+# keybinds
+keybind = super+enter=unbind
+keybind = super+a=unbind
