@@ -1,9 +1,11 @@
 return {
   'stevearc/oil.nvim',
-  opts = {},
   dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   lazy = false,
   opts = {
+    keymaps = {
+      ['<C-h>'] = false,
+    },
     columns = {
       'icon',
     },

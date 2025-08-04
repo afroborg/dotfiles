@@ -39,8 +39,8 @@ RUN /home/linuxbrew/.linuxbrew/bin/brew bundle --file=./dotfiles/Brewfile
 COPY . ./dotfiles/
 
 RUN cd dotfiles \
-  && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \ 
-  && ./bootstrap.sh 
+  && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \
+  && ./bootstrap.sh
 
 # Start Zsh by default
 CMD ["zsh"]

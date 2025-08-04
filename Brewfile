@@ -10,6 +10,8 @@ brew "zinit"
 brew "ripgrep"
 brew "fd"
 brew "sk"
+brew "tmux"
+brew "tpm"
 
 cask "raycast"
 cask "ghostty"
@@ -18,3 +20,4 @@ cask "figma"
 cask "docker-desktop" unless OS.mac?
 cask "orbstack" if OS.mac?
 cask "font-iosevka-nerd-font"
+cask "bitwarden"

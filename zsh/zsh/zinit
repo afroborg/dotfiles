@@ -7,16 +7,19 @@ zinit_plugins=(
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-completions
     zsh-users/zsh-autosuggestions
+    jeffreytse/zsh-vi-mode
 )
 
 omzp_plugins=(
     git
     command-not-found
     brew
-    starship
+    #    starship disabled due to this issue: https://github.com/starship/starship/issues/3418
     docker
+    mise
 )
 
+zinit ice depth=1
 for p in $zinit_plugins; do
     zinit light $p
 done
