@@ -5,6 +5,8 @@ return {
   opts = {
     keymaps = {
       ['<C-h>'] = false,
+      ['<C-l>'] = false,
+      ['.'] = { 'actions.cd', mode = 'n' },
     },
     columns = {
       'icon',

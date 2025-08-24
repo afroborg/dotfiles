@@ -1,6 +1,6 @@
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets', 'giuxtaposition/blink-cmp-copilot' },
+  dependencies = { 'rafamadriz/friendly-snippets', 'echasnovski/mini.icons' },
   version = '1.*',
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -24,6 +24,13 @@ return {
     completion = {
       menu = {
         draw = {
+
+          columns = {
+            { 'kind_icon', 'label', gap = 1 },
+            { 'label_description' },
+            { 'kind' },
+          },
+
           components = {
             kind_icon = {
               text = function(ctx)
@@ -47,16 +54,15 @@ return {
         },
       },
     },
-    sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'copilot' },
-      providers = {
-        copilot = {
-          name = 'copilot',
-          module = 'blink-cmp-copilot',
-          score_offset = 100,
-          async = true,
-        },
+    signature = {
+      enabled = true,
+      window = {
+        border = 'rounded',
+        show_documentation = false,
       },
+    },
+    sources = {
+      default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
   },
 }

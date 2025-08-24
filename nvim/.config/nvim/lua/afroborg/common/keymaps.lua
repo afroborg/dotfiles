@@ -1,14 +1,11 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 
 local km = vim.keymap
 
-km.set("n", "<leader>sv", "<C-w>v")
-km.set("n", "<leader>sh", "<C-w>s")
-km.set("n", "<leader>se", "<C-w>=")
-km.set("n", "<leader>sx", ":close<CR>")
+km.set('n', '<leader>sv', '<C-w>v', { desc = 'Split window vertically' })
+km.set('n', '<leader>sh', '<C-w>s', { desc = 'Split window horizontally' })
+km.set('n', '<leader>se', '<C-w>=', { desc = 'Equalize split sizes' })
+km.set('n', '<leader>sx', ':close<CR>', { desc = 'Close current split' })
 
--- tabs
-km.set("n", "<leader>to", ":tabnew<CR>")
-km.set("n", "<leader>tx", ":tabclose<CR>")
-km.set("n", "<leader>tn", ":tabn<CR>")
-km.set("n", "<leader>tp", ":tabp<CR>")
+km.set('n', '<leader>o', ':so %<CR>', { desc = 'Source current file', silent = true })
+km.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Show diagnostic message' })

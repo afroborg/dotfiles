@@ -9,10 +9,10 @@ return {
       auto_trigger = true,
       hide_during_completion = vim.g.ai_cmp,
       keymap = {
-        accept = '<M-a>',
-        dismiss = '<M-d>',
-        prev = '<M-p>',
-        next = '<M-n>',
+        accept = '<C-l>',
+        dismiss = '<C-e>',
+        prev = '<C-k>',
+        next = '<C-j>',
       },
     },
     panel = {

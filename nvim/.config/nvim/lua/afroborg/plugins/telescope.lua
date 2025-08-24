@@ -1,5 +1,6 @@
 return {
   'nvim-telescope/telescope.nvim',
+  enabled = false,
   branch = '0.1.x',
   commit = 'b4da76be54691e854d3e0e02c36b0245f945c2c7', -- todo: remove this once fixed
   dependencies = {
@@ -54,8 +55,7 @@ return {
     vim.keymap.set('n', '<leader>sf', '<cmd>Telescope find_files<cr>')
     vim.keymap.set('n', '<leader>ff', '<cmd>Telescope find_files<cr>')
     vim.keymap.set('n', '<leader>sg', '<cmd>Telescope git_files<cr>')
-    vim.keymap.set('n', '<leader>st', '<cmd>Telescope live_grep<cr>')
+    vim.keymap.set('n', '<leader>ss', '<cmd>Telescope live_grep<cr>')
     vim.keymap.set('n', '<leader>sw', '<cmd>Telescope grep_string<cr>')
-    vim.keymap.set('n', '<leader>fb', '<cmd>Telescope file_browser<cr>')
   end,
 }
