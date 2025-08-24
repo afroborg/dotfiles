@@ -13,7 +13,12 @@ return {
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      matcher = {
+        frecency = true,
+      },
+    },
   },
   keys = {
     -- Picker
@@ -48,7 +53,7 @@ return {
     {
       '<leader>/',
       function()
-        Snacks.picker.grep()
+        Snacks.picker.grep_buffers()
       end,
       desc = 'Grep',
     },
