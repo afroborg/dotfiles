@@ -1,10 +1,16 @@
+# UI options
 theme = "github-dark-default"
 font-family = "Iosevka Nerd Font"
 font-size = 14
+
+# screen options
 maximize = true
 fullscreen = true
 macos-non-native-fullscreen = visible-menu
-macos-option-as-alt = left
+
 # keybinds
 keybind = super+enter=unbind
 keybind = super+a=unbind
+
+# MacOS options
+macos-option-as-alt = left

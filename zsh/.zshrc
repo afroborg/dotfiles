@@ -6,7 +6,7 @@ if [[ -f "/opt/homebrew/bin/brew" ]] then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-_modules=('commands' 'zinit' 'alias' 'env' 'ssh-keys')
+_modules=('commands' 'env' 'zinit' 'alias' 'ssh-keys')
 for m in $_modules; do source "$HOME/zsh/$m"; done
 
 setopt autocd              # change directory just by typing its name

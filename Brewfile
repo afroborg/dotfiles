@@ -17,7 +17,6 @@ cask "raycast"
 cask "ghostty"
 cask "figma"
 
-cask "docker-desktop" unless OS.mac?
-cask "orbstack" if OS.mac?
+cask "docker-desktop"
 cask "font-iosevka-nerd-font"
 cask "bitwarden"
