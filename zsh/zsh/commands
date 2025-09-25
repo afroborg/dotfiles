@@ -7,3 +7,13 @@ function ipexternal() {
         echo "Curl required"
     fi
 }
+
+
+function largest-files() {
+    local c=$1
+    if [[ -z $c ]]; then
+        c=10
+    fi
+
+    du -hs * | sort -hr | head -n $c
+}
