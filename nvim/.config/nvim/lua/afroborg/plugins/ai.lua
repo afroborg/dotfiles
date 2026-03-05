@@ -27,6 +27,8 @@ return {
     },
     filetypes = {
       markdown = true,
+      yaml = true,
+      yml = true,
       help = true,
     },
   },

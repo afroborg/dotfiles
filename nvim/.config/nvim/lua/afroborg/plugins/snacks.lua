@@ -39,7 +39,7 @@ return {
     {
       '<leader>fs',
       function()
-        Snacks.picker.grep()
+        Snacks.picker.grep { hidden = true }
       end,
       desc = 'Search with grep',
     },

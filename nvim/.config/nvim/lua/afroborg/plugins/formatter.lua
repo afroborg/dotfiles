@@ -1,32 +1,50 @@
+local js_formatters = {
+  'biome',
+  'biome-check',
+  'prettierd',
+}
+
 return {
   'stevearc/conform.nvim',
   ---@type conform.setupOpts
   opts = {
     formatters = {
-      prettier = {
+      prettierd = {
+        require_cwd = true,
+      },
+      biome = {
+        require_cwd = true,
+      },
+      ['biome-check'] = {
         require_cwd = true,
       },
     },
     formatters_by_ft = {
       lua = { 'stylua' },
       rust = { 'rustfmt' },
-      json = { 'prettierd', 'prettier', stop_after_first = true },
-      yaml = { 'prettierd', 'prettier', stop_after_first = true },
-      javascript = { 'prettierd', 'prettier', stop_after_first = true },
-      typescript = { 'prettierd', 'prettier', stop_after_first = true },
-      javascriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      typescriptreact = { 'prettierd', 'prettier', stop_after_first = true },
-      svelte = { 'prettierd', 'prettier', stop_after_first = true },
-      astro = { 'prettierd', 'prettier', stop_after_first = true },
+      json = js_formatters,
+      jsonc = js_formatters,
+      yaml = js_formatters,
+      javascript = js_formatters,
+      typescript = js_formatters,
+      javascriptreact = js_formatters,
+      typescriptreact = js_formatters,
+      svelte = js_formatters,
+      astro = js_formatters,
       zsh = { 'beautysh' },
+      sh = { 'beautysh' },
       bash = { 'beautysh' },
       terraform = { 'terraform_fmt' },
+      sql = { 'sqlfluff' },
 
-      ['_'] = { 'prettierd', 'prettier', 'trim_whitespace', stop_after_first = true },
+      ['_'] = { 'prettierd', 'trim_whitespace', stop_after_first = true },
     },
-    format_on_save = {
-      lsp_format = 'fallback',
-      timeout_ms = 500,
-    },
+    format_on_save = function(bufnr)
+      local lsp_format_opt = 'never'
+      return {
+        timeout_ms = 500,
+        lsp_format = lsp_format_opt,
+      }
+    end,
   },
 }

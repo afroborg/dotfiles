@@ -15,6 +15,7 @@ return {
       show_hidden = true,
     },
   },
+  watch_for_changes = true,
   keys = {
     { '<leader>e', '<cmd>Oil<CR>', desc = 'Open Oil (file explorer)' },
   },
