@@ -15,9 +15,9 @@
   autoSetupRemote = true
 [core]
   editor = nvim
-[gpg "ssh"]
-	allowedSignersFile = ~/.ssh/allowed-signers
 [gpg]
 	format = ssh
 [rebase]
-	autostash = true
+  autostash = true
+[include]
+  path = ~/.gitconfig.local
