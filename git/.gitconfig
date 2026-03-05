@@ -1,10 +1,12 @@
 [user]
 	name = Axel Froborg
 	email = axel.froborg@gmail.com
+	signingkey = ~/.config/git/signingkey.pub
 [init]
 	defaultBranch = main
 [pull]
 	rebase = true
+	autostash = true
 [commit]
 	gpgsign = true
 [core]
@@ -13,3 +15,9 @@
   autoSetupRemote = true
 [core]
   editor = nvim
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed-signers
+[gpg]
+	format = ssh
+[rebase]
+	autostash = true
