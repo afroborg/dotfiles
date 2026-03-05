@@ -9,3 +9,6 @@ km.set('n', '<leader>sx', ':close<CR>', { desc = 'Close current split' })
 
 km.set('n', '<leader>o', ':so %<CR>', { desc = 'Source current file', silent = true })
 km.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Show diagnostic message' })
+
+km.set('n', 'gEn', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+km.set('n', 'gEp', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
