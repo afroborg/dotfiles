@@ -5,6 +5,7 @@ brew "eza"
 brew "bat"
 brew "zellij"
 brew "lazygit" if OS.mac?
+brew "lazydocker" if OS.mac?
 brew "starship"
 brew "zinit"
 brew "ripgrep"

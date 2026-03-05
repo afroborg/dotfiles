@@ -9,6 +9,7 @@ alias vi='nvim'
 alias ..='cd ..'
 alias ...='cd ../..'
 [[ -x "$(command -v lazygit)" ]] && alias lg='lazygit'
+[[ -x "$(command -v lazydocker)" ]] && alias ld='lazydocker'
 
 
 alias src='source ~/.zshrc'

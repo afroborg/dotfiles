@@ -17,3 +17,8 @@ function largest-files() {
 
     du -hs * | sort -hr | head -n $c
 }
+
+function flush-dns() {
+  sudo dscacheutil -flushcache
+  sudo killall -HUP mDNSResponder
+}
