@@ -12,5 +12,3 @@ macos-non-native-fullscreen = visible-menu
 keybind = super+enter=unbind
 keybind = super+a=unbind
 
-# MacOS options
-macos-option-as-alt = left

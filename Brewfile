@@ -13,6 +13,8 @@ brew "fd"
 brew "sk"
 brew "tmux"
 brew "tpm"
+brew "zoxide"
+brew "tree-sitter-cli"
 
 cask "raycast"
 cask "ghostty"

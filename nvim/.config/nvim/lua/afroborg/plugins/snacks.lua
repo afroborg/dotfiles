@@ -51,6 +51,13 @@ return {
       desc = 'Find buffers',
     },
     {
+      '<leader>sn',
+      function()
+        Snacks.notifier.show_history()
+      end,
+      desc = 'Notification history',
+    },
+    {
       '<leader>/',
       function()
         Snacks.picker.grep_buffers()

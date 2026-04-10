@@ -17,6 +17,7 @@ omzp_plugins=(
     #    starship disabled due to this issue: https://github.com/starship/starship/issues/3418
     docker
     mise
+    zoxide
 )
 
 zinit ice depth=1
