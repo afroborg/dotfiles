@@ -14,7 +14,6 @@ zinit_plugins=(
 
 omzp_plugins=(
     git
-    command-not-found
     brew
     #    starship disabled due to this issue: https://github.com/starship/starship/issues/3418
     docker
