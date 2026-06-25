@@ -6,6 +6,8 @@ local js_formatters = {
 
 return {
   'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   ---@type conform.setupOpts
   opts = {
     formatters = {
