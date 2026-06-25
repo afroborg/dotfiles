@@ -2,12 +2,14 @@
 
 source $HOMEBREW_PREFIX/opt/zinit/zinit.zsh
 
+# Two-column table: each plugin and its load mode.
+#   wait = deferred (Turbo mode, loads just after the prompt) — the default choice
+#   now  = eager (loaded during startup, active from the very first keystroke)
 zinit_plugins=(
-    casonadams/skim.zsh
-    zsh-users/zsh-syntax-highlighting
-    zsh-users/zsh-completions
-    zsh-users/zsh-autosuggestions
-    jeffreytse/zsh-vi-mode
+    casonadams/skim.zsh             wait
+    zsh-users/zsh-completions       wait
+    zsh-users/zsh-autosuggestions   wait
+    jeffreytse/zsh-vi-mode          now
 )
 
 omzp_plugins=(
@@ -20,14 +22,18 @@ omzp_plugins=(
     zoxide
 )
 
-zinit ice depth=1
-for p in $zinit_plugins; do
-    zinit light $p
+for plugin mode in $zinit_plugins; do
+    [[ "$mode" == wait ]] && zinit ice wait lucid
+    zinit light "$plugin"
 done
+unset plugin mode
 
 for p in $omzp_plugins; do
+    zinit ice wait lucid
     zinit snippet OMZP::$p
 done
 
-autoload -U compinit && compinit
-zinit cdreplay -q
+# syntax-highlighting must load last so it can wrap the widgets defined above;
+# its atinit runs compinit and replays the completions captured during turbo load.
+zinit ice wait lucid atinit'zicompinit; zicdreplay'
+zinit light zsh-users/zsh-syntax-highlighting
