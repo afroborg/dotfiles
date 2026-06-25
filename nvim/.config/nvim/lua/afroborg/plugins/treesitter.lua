@@ -11,6 +11,7 @@ local parsers = {
   'css',
   'bash',
   'dockerfile',
+  'astro',
 }
 
 return {

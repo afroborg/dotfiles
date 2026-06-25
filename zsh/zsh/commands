@@ -22,3 +22,13 @@ function flush-dns() {
     sudo dscacheutil -flushcache
     sudo killall -HUP mDNSResponder
 }
+
+function rop() {
+    local port=$1
+    if [[ -z $port ]]; then
+        echo "Please provide a port number."
+        return 1
+    fi
+
+    lsof -i :$port
+}
