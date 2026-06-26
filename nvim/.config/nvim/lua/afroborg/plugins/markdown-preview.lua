@@ -1,9 +1,12 @@
+---@type LazySpec
 return {
   'iamcco/markdown-preview.nvim',
-  cmd = { 'MarkdownPreview' },
-  build = 'cd app && npm install && git restore .',
+  cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+  ft = { 'markdown' },
+  build = function()
+    vim.fn['mkdp#util#install']()
+  end,
   init = function()
     vim.g.mkdp_filetypes = { 'markdown' }
   end,
-  ft = { 'markdown' },
 }

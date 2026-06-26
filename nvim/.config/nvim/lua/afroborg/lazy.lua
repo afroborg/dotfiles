@@ -13,10 +13,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
+---@type LazySpec
 local plugins = {
   { import = 'afroborg.plugins' },
 }
 
+---@type LazyConfig
 local opts = {
   checker = {
     enable = true,

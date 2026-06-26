@@ -4,6 +4,7 @@ local js_formatters = {
   'prettierd',
 }
 
+---@type LazySpec
 return {
   'stevearc/conform.nvim',
   event = { 'BufWritePre' },
@@ -41,12 +42,9 @@ return {
 
       ['_'] = { 'prettierd', 'trim_whitespace', stop_after_first = true },
     },
-    format_on_save = function(bufnr)
-      local lsp_format_opt = 'never'
-      return {
-        timeout_ms = 500,
-        lsp_format = lsp_format_opt,
-      }
-    end,
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = 'fallback',
+    },
   },
 }

@@ -12,8 +12,12 @@ local parsers = {
   'bash',
   'dockerfile',
   'astro',
+  'markdown',
+  'markdown_inline',
+  'regex',
 }
 
+---@type LazySpec
 return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',

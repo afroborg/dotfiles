@@ -1,7 +1,10 @@
+---@type LazySpec
 return {
   'stevearc/oil.nvim',
   dependencies = { { 'echasnovski/mini.icons', opts = {} } },
   lazy = false,
+  ---@module 'oil'
+  ---@type oil.setupOpts
   opts = {
     keymaps = {
       ['<C-h>'] = false,
@@ -14,8 +17,8 @@ return {
     view_options = {
       show_hidden = true,
     },
+    watch_for_changes = true,
   },
-  watch_for_changes = true,
   keys = {
     { '<leader>e', '<cmd>Oil<CR>', desc = 'Open Oil (file explorer)' },
   },

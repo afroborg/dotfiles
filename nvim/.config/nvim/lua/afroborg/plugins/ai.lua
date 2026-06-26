@@ -1,13 +1,17 @@
+---@diagnostic disable: missing-fields
+---@type LazySpec
 return {
   'zbirenbaum/copilot.lua',
   cmd = 'Copilot',
   build = ':Copilot auth',
   event = 'InsertEnter',
+  ---@module 'copilot'
+  ---@type CopilotConfig
   opts = {
     suggestion = {
-      enabled = not vim.g.ai_cmp,
+      enabled = true,
       auto_trigger = true,
-      hide_during_completion = vim.g.ai_cmp,
+      hide_during_completion = false,
       keymap = {
         accept = '<C-l>',
         dismiss = '<C-e>',

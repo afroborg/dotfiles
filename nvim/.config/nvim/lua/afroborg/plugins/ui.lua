@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     'projekt0n/github-nvim-theme',
@@ -13,6 +14,8 @@ return {
   {
     'folke/which-key.nvim',
     event = 'VeryLazy',
+    ---@module 'which-key'
+    ---@type wk.Opts
     opts = {},
     keys = {
       {
@@ -28,20 +31,13 @@ return {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'echasnovski/mini.icons' },
     config = function()
-      local mini_icons = require 'mini.icons'
-
-      local function filetype_icon()
-        local icon, hl = mini_icons.get('filetype', vim.bo.filetype)
-        if icon == nil then
-          return ''
-        end
-        return icon .. ' '
-      end
+      require('mini.icons').setup()
+      MiniIcons.mock_nvim_web_devicons()
 
       require('lualine').setup {
         sections = {
           lualine_c = {
-            filetype_icon,
+            { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
             { 'filename', path = 1 },
           },
         },

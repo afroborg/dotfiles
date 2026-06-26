@@ -7,6 +7,7 @@ local tools = {
   'stylua',
 }
 
+---@type LazySpec
 return {
   'neovim/nvim-lspconfig',
   event = 'VeryLazy',
@@ -19,13 +20,6 @@ return {
     { 'saghen/blink.cmp' },
   },
   keys = {
-    {
-      'grn',
-      function()
-        vim.lsp.buf.rename()
-      end,
-      desc = 'LSP: Rename',
-    },
     {
       'ga',
       function()
@@ -49,15 +43,20 @@ return {
     ---@type MasonLspconfigSettings
     ---@diagnostic disable-next-line: missing-fields
     require('mason-lspconfig').setup {
-      automatic_enable = true,
+      automatic_enable = {
+        exclude = { 'ts_ls' },
+      },
     }
 
-    require('mason-tool-installer').setup { ensure_installed = ensure_installed, run_on_start = true }
+    require('mason-tool-installer').setup {
+      ensure_installed = ensure_installed,
+      run_on_start = true,
+      start_delay = 1000,
+      debounce_hours = 24,
+    }
 
     for server_name, config in pairs(servers) do
       vim.lsp.config(server_name, config)
     end
-
-    vim.diagnostic.config { virtual_text = true }
   end,
 }
