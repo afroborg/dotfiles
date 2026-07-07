@@ -10,7 +10,7 @@
 [commit]
 	gpgsign = true
 [core]
-  excludesfile = ~/dotfiles/.globalignore
+  excludesfile = ~/dotfiles/git/.globalignore
 [push]
   autoSetupRemote = true
 [core]
